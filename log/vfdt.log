@@ -1,0 +1,14 @@
+2020-12-07 19:23:48,610 hoeffdingtree.py[line:138] INFO Start build classifier--------------------------
+grace_period = 100,
+split_confidence = 0.2,
+hoeffding_tie_threshold = 0.06,
+min_frac_weight_for_two_branches_gain = 0.1
+--------------------------------------------------
+2020-12-07 19:24:23,455 hoeffdingtree.py[line:364] INFO test accucy:1.0
+2020-12-07 19:24:23,465 hoeffdingtree.py[line:364] INFO test accucy:0.0
+2020-12-07 19:25:11,121 hoeffdingtree.py[line:364] INFO test accucy:1.0
+2020-12-07 19:25:11,131 hoeffdingtree.py[line:364] INFO test accucy:0.0
+2020-12-07 19:25:12,919 hoeffdingtree.py[line:364] INFO test accucy:1.0
+2020-12-07 19:25:12,928 hoeffdingtree.py[line:364] INFO test accucy:0.0
+2020-12-07 19:25:15,618 hoeffdingtree.py[line:364] INFO test accucy:1.0
+2020-12-07 19:25:15,627 hoeffdingtree.py[line:364] INFO test accucy:0.0

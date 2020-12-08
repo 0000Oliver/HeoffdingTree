@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>ht.gaussianconditionalsufficientstats.GaussianEstimator</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">core.univariatenormalestimator.UnivariateNormalEstimator</node>
+    <node x="0.0" y="71.0">ht.gaussianconditionalsufficientstats.GaussianEstimator</node>
+    <node x="0.0" y="142.0">object</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="211.0" y="84.0" />
+  <SelectedNodes />
+  <Categories />
+</Diagram>
+

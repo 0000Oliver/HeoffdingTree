@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>ht.gaussianconditionalsufficientstats.GaussianEstimator</OriginalElement>
+  <nodes>
+    <node x="3969.25" y="692.0">core.univariatenormalestimator.UnivariateNormalEstimator</node>
+    <node x="2010.7500000000002" y="1178.0">ht.splitnode.SplitNode</node>
+    <node x="4411.25" y="791.0">ht.splitcandidate.SplitCandidate</node>
+    <node x="3418.75" y="1189.0">ht.gaussianconditionalsufficientstats.GaussianConditionalSufficientStats</node>
+    <node x="3180.4034090909095" y="802.0">ht.conditionalsufficientstats.ConditionalSufficientStats</node>
+    <node x="1512.7500000000002" y="1277.5">ht.univariatenominalmultiwaysplit.UnivariateNominalMultiwaySplit</node>
+    <node x="2377.25" y="1554.5">ht.inactivehnode.InactiveHNode</node>
+    <node x="828.4034090909095" y="637.0">core.dataset.Dataset</node>
+    <node x="2878.75" y="1233.0">ht.nominalconditionalsufficientstats.NominalConditionalSufficientStats</node>
+    <node x="461.40340909090946" y="593.0">core.instance.Instance</node>
+    <node x="2217.636363636364" y="659.0">ht.hnode.HNode</node>
+    <node x="0.0" y="1266.0">ht.infogainsplitmetric.InfoGainSplitMetric</node>
+    <node x="2405.75" y="1255.0">ht.leafnode.LeafNode</node>
+    <node x="1042.7500000000002" y="1266.0">ht.univariatenumericbinarysplit.UnivariateNumericBinarySplit</node>
+    <node x="1363.4034090909095" y="791.0">ht.split.Split</node>
+    <node x="1974.7500000000002" y="0.0">object</node>
+    <node x="170.40340909090946" y="813.5">ht.splitmetric.SplitMetric</node>
+    <node x="2637.25" y="1521.0">ht.activehnode.ActiveHNode</node>
+    <node x="1678.6534090909095" y="769.0">ht.nominalconditionalsufficientstats.ValueDistribution</node>
+    <node x="3972.75" y="1266.5">ht.gaussianconditionalsufficientstats.GaussianEstimator</node>
+    <node x="352.0000000000002" y="1277.5">ht.ginisplitmetric.GiniSplitMetric</node>
+    <node x="4747.25" y="615.0">core.attribute.Attribute</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ht.inactivehnode.InactiveHNode" target="ht.leafnode.LeafNode">
+      <point x="0.0" y="-36.0" />
+      <point x="2497.25" y="1496.0" />
+      <point x="2519.0" y="1496.0" />
+      <point x="-113.25" y="69.5" />
+    </edge>
+    <edge source="ht.nominalconditionalsufficientstats.ValueDistribution" target="object">
+      <point x="0.0" y="-91.5" />
+      <point x="1882.6534090909095" y="573.0" />
+      <point x="2095.8" y="573.0" />
+      <point x="-13.449999999999818" y="256.5" />
+    </edge>
+    <edge source="ht.ginisplitmetric.GiniSplitMetric" target="ht.splitmetric.SplitMetric">
+      <point x="0.0" y="-47.0" />
+      <point x="487.5000000000002" y="1153.0" />
+      <point x="373.65340909090946" y="1153.0" />
+      <point x="67.75" y="47.0" />
+    </edge>
+    <edge source="ht.splitcandidate.SplitCandidate" target="object">
+      <point x="0.0" y="-69.5" />
+      <point x="4569.25" y="543.0" />
+      <point x="2203.4000000000005" y="543.0" />
+      <point x="94.15000000000009" y="256.5" />
+    </edge>
+    <edge source="ht.split.Split" target="object">
+      <point x="0.0" y="-69.5" />
+      <point x="1488.9034090909095" y="563.0" />
+      <point x="2068.9000000000005" y="563.0" />
+      <point x="-40.34999999999991" y="256.5" />
+    </edge>
+    <edge source="ht.splitmetric.SplitMetric" target="object">
+      <point x="0.0" y="-47.0" />
+      <point x="305.90340909090946" y="533.0" />
+      <point x="1988.2000000000003" y="533.0" />
+      <point x="-121.04999999999995" y="256.5" />
+    </edge>
+    <edge source="ht.gaussianconditionalsufficientstats.GaussianConditionalSufficientStats" target="ht.conditionalsufficientstats.ConditionalSufficientStats">
+      <point x="0.0" y="-135.5" />
+      <point x="3685.75" y="1153.0" />
+      <point x="3496.9034090909095" y="1153.0" />
+      <point x="105.5" y="58.5" />
+    </edge>
+    <edge source="core.instance.Instance" target="object">
+      <point x="0.0" y="-267.5" />
+      <point x="634.9034090909095" y="543.0" />
+      <point x="2015.1000000000001" y="543.0" />
+      <point x="-94.15000000000009" y="256.5" />
+    </edge>
+    <edge source="ht.univariatenumericbinarysplit.UnivariateNumericBinarySplit" target="ht.split.Split">
+      <point x="0.0" y="-58.5" />
+      <point x="1267.7500000000002" y="1153.0" />
+      <point x="1426.1534090909095" y="1153.0" />
+      <point x="-62.75" y="69.5" />
+    </edge>
+    <edge source="ht.gaussianconditionalsufficientstats.GaussianEstimator" target="core.univariatenormalestimator.UnivariateNormalEstimator">
+      <point x="0.0" y="-58.0" />
+      <point x="0.0" y="168.5" />
+    </edge>
+    <edge source="ht.nominalconditionalsufficientstats.NominalConditionalSufficientStats" target="ht.conditionalsufficientstats.ConditionalSufficientStats">
+      <point x="0.0" y="-91.5" />
+      <point x="3138.75" y="1153.0" />
+      <point x="3285.9034090909095" y="1153.0" />
+      <point x="-105.5" y="58.5" />
+    </edge>
+    <edge source="core.attribute.Attribute" target="object">
+      <point x="0.0" y="-245.5" />
+      <point x="4988.25" y="533.0" />
+      <point x="2230.3" y="533.0" />
+      <point x="121.05000000000018" y="256.5" />
+    </edge>
+    <edge source="ht.hnode.HNode" target="object">
+      <point x="0.0" y="-201.5" />
+      <point x="2405.136363636364" y="573.0" />
+      <point x="2122.7" y="573.0" />
+      <point x="13.449999999999818" y="256.5" />
+    </edge>
+    <edge source="ht.splitnode.SplitNode" target="ht.hnode.HNode">
+      <point x="0.0" y="-146.5" />
+      <point x="2198.25" y="1153.0" />
+      <point x="2311.386363636364" y="1153.0" />
+      <point x="-93.75" y="201.5" />
+    </edge>
+    <edge source="ht.activehnode.ActiveHNode" target="ht.leafnode.LeafNode">
+      <point x="0.0" y="-69.5" />
+      <point x="2767.25" y="1496.0" />
+      <point x="2745.5" y="1496.0" />
+      <point x="113.25" y="69.5" />
+    </edge>
+    <edge source="ht.univariatenominalmultiwaysplit.UnivariateNominalMultiwaySplit" target="ht.split.Split">
+      <point x="0.0" y="-47.0" />
+      <point x="1751.7500000000002" y="1153.0" />
+      <point x="1551.6534090909095" y="1153.0" />
+      <point x="62.75" y="69.5" />
+    </edge>
+    <edge source="ht.leafnode.LeafNode" target="ht.hnode.HNode">
+      <point x="0.0" y="-69.5" />
+      <point x="2632.25" y="1153.0" />
+      <point x="2498.886363636364" y="1153.0" />
+      <point x="93.75" y="201.5" />
+    </edge>
+    <edge source="core.dataset.Dataset" target="object">
+      <point x="0.0" y="-223.5" />
+      <point x="1085.9034090909095" y="553.0" />
+      <point x="2042.0000000000002" y="553.0" />
+      <point x="-67.25" y="256.5" />
+    </edge>
+    <edge source="core.univariatenormalestimator.UnivariateNormalEstimator" target="object">
+      <point x="0.0" y="-168.5" />
+      <point x="4180.25" y="553.0" />
+      <point x="2176.5" y="553.0" />
+      <point x="67.25" y="256.5" />
+    </edge>
+    <edge source="ht.conditionalsufficientstats.ConditionalSufficientStats" target="object">
+      <point x="0.0" y="-58.5" />
+      <point x="3391.4034090909095" y="563.0" />
+      <point x="2149.6000000000004" y="563.0" />
+      <point x="40.34999999999991" y="256.5" />
+    </edge>
+    <edge source="ht.infogainsplitmetric.InfoGainSplitMetric" target="ht.splitmetric.SplitMetric">
+      <point x="0.0" y="-58.5" />
+      <point x="166.0" y="1153.0" />
+      <point x="238.15340909090946" y="1153.0" />
+      <point x="-67.75" y="47.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.1868665178238863" x="3321.8163634018097" y="1323.2047801980061" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+</Diagram>
+
