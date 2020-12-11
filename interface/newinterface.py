@@ -117,9 +117,23 @@ class FileDrop(wx.FileDropTarget):
 
         train(pics)
 
+        for i in range(test_pos_picbox.GetItemCount()):
+            test_pos_picbox.Remove(0)
+        for i in range(test_neg_picbox.GetItemCount()):
+            test_neg_picbox.Remove(0)
         self.traindata_number +=len(filePath)
         train_data_text.SetLabel("训练集：" + str(self.traindata_number))
-
+        for b_i in img_boxs_instances:
+            pre = vfdt.predict(b_i[1])
+            if pre =="face":
+                test_pos_picbox.Add(b_i[0], 0, wx.LEFT, border=1)
+            else:
+                test_neg_picbox.Add(b_i[0], 0, wx.LEFT, border=1)
+        test_pos_picbox.Layout()
+        test_neg_picbox.Layout()
+        # hbox3.Remove(0)
+        # hbox3.Remove(0)
+        hbox3.Layout()
         self.gridsizer.Layout()
         vbox.Layout()
         bkg.SetSizer(vbox)
@@ -150,12 +164,12 @@ train_dirlist = os.listdir(train_root)
 test_pos_data = read_test_pics(test_root+"/pos",1)
 test_neg_data = read_test_pics(test_root+"/neg",0)
 
-train_mixed_data = read_mix_train_pics(train_root,10)
+train_mixed_data = read_mix_train_pics(train_root,130)
 
 
 #初始化 并加入几张图片训练一个模型
 set_minimum_fraction_of_weight_info_gain = 0.1
-grace_period = 100
+grace_period = 5
 hoeffding_tie_threshold = 0.06
 split_confidence = 0.2
 vfdt = HoeffdingTree()
@@ -190,15 +204,37 @@ bkg.SetScrollbars(1, 1, 600, 1000)
 #loadButton = wx.Button(bkg, label='开始输入数据流')
 #loadButton.Bind(wx.EVT_BUTTON, start_train)
 testimg_pos_boxs = []
+img_boxs_instances = []
 for i in range(45):
-    img = wx.Image(os.path.join(test_root+"/pos",pos_dirlist[i])).ConvertToBitmap()
-    testimg_pos_boxs.append(wx.StaticBitmap(bkg, -1, img))
+    img_dir = os.path.join(test_root+"/pos",pos_dirlist[i])
+
+    im = Image.open(img_dir)
+    im_array = np.array(im)
+    im_array = list(im_array.flatten())
+    im_array.append(0)
+    ins = Instance(att_values=im_array)
+    ins.set_dataset(train_mixed_data)
+
+    img = wx.Image(img_dir).ConvertToBitmap()
+    #testimg_pos_boxs.append(wx.StaticBitmap(bkg, -1, img))
+    img_boxs_instances.append((wx.StaticBitmap(bkg, -1, img),ins))
 testimg_neg_boxs = []
 for i in range(45):
-    img = wx.Image(os.path.join(test_root+"/neg",neg_dirlist[i])).ConvertToBitmap()
-    testimg_neg_boxs.append(wx.StaticBitmap(bkg, -1, img))
+    img_dir = os.path.join(test_root+"/neg",neg_dirlist[i])
 
+    im = Image.open(img_dir)
+    im_array = np.array(im)
+    im_array = list(im_array.flatten())
+    im_array.append(0)
+    ins = Instance(att_values=im_array)
+    ins.set_dataset(train_mixed_data)
 
+    img = wx.Image(img_dir).ConvertToBitmap()
+    #testimg_neg_boxs.append(wx.StaticBitmap(bkg, -1, img))
+
+    img_boxs_instances.append((wx.StaticBitmap(bkg, -1, img), ins))
+
+random.shuffle(img_boxs_instances)
 # filename = wx.TextCtrl(bkg)
 # contents = wx.TextCtrl(bkg, style=wx.TE_MULTILINE | wx.HSCROLL)
 
@@ -210,12 +246,16 @@ testdata_neg_text = wx.StaticText(bkg, label="负样本", style=wx.ALIGN_CENTER,
 testdata_pos_acc = wx.StaticText(bkg, label="测试准确率：0.5",style=wx.ALIGN_CENTER,size=(300, 25))
 testdata_neg_acc = wx.StaticText(bkg, label="测试准确率：0.5",style=wx.ALIGN_CENTER,size=(300, 25))
 
-test_pos_picbox = wx.GridSizer(cols=9, rows=5, vgap=2, hgap=2)
-for box in testimg_pos_boxs:
-    test_pos_picbox.Add(box, 0, wx.LEFT, border=1)
-test_neg_picbox = wx.GridSizer(cols=9, rows=5, vgap=2, hgap=2)
-for box in testimg_neg_boxs:
-    test_neg_picbox.Add(box, 0, wx.LEFT, border=1)
+test_pos_picbox = wx.FlexGridSizer(cols=9, vgap=2, hgap=2)
+for b_i in img_boxs_instances[:45]:
+    test_pos_picbox.Add(b_i[0], 0, wx.LEFT, border=1)
+# for box in testimg_pos_boxs:
+#     test_pos_picbox.Add(box, 0, wx.LEFT, border=1)
+test_neg_picbox = wx.FlexGridSizer(cols=9,vgap=2, hgap=2)
+for b_i in img_boxs_instances[45:]:
+    test_neg_picbox.Add(b_i[0], 0, wx.LEFT, border=1)
+# for box in testimg_neg_boxs:
+#     test_neg_picbox.Add(box, 0, wx.LEFT, border=1)
 
 train_data_text = wx.StaticText(bkg, label="训练集:10",style=wx.ALIGN_CENTER,size=(300, 25))
 traindata_number =10
